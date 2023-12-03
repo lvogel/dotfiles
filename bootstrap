@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# exit on error
+set -e
+CURRENT_DIR=$(pwd -P)
+
+# set log levels and colors
+info() { printf '\r  [ \033[00;34m..\033[0m ] %s\n' "$1"; }
+error() { printf '\r\033[2K  [\033[0;31mFAIL\033[0m] %s\n' "$1"; exit 1; }
+
+# Links dotfiles to home directory
+link_dotfiles() {
+    # Find all .symlink files in the repository, up to 2 levels deep
+
+    for src in $(find -H "$CURRENT_DIR" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+    do
+        dst="$HOME/.$(basename "${src%.*}")"
+        info "Linking $src to $dst"
+        ln -sf "$src" "$dst"
+    done
+}
+
+info "Setting up dotfiles"
+link_dotfiles
+
+exit 0
