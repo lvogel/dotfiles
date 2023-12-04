@@ -3,3 +3,7 @@
 [push]
         # Automatically setup remote tracking branches
         autoSetupRemote = true
+[commit]
+        # Sign commits using GPG. Make sure to set a key
+        # in ~/.gitconfig.local
+        gpgsign = true
