@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Runs all install.sh scripts found in the dotfiles repository
+set -e
+
+cd "$(dirname $0)"
+
+# find the installers and run them iteratively
+find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
