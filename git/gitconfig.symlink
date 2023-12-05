@@ -7,3 +7,5 @@
         # Sign commits using GPG. Make sure to set a key
         # in ~/.gitconfig.local
         gpgsign = true
+[core]
+        excludesFile = ~/.gitignore
