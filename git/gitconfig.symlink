@@ -1,3 +1,5 @@
+[init]
+        defaultBranch = main
 [include]
         path = ~/.gitconfig.local
 [push]
@@ -9,3 +11,5 @@
         gpgsign = true
 [core]
         excludesFile = ~/.gitignore
+[log]
+        date = iso-local
